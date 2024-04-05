@@ -71,6 +71,7 @@
              
              
             </ul>
+           
           </li>
            
           
@@ -83,6 +84,8 @@
         <input class="form-control me-2" type="search" name="search" id="" placeholder="Search" >
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+      <a href="{{route('viewmessage')}}"><i class="bi bi-chat-left-dots " style="padding-left: 10px; font-size:22px" ></i></a>
+     
      
            
         
@@ -259,6 +262,7 @@
     <div></div>
     <div></div>
   </div>
+  @yield('content')
 
   <!-- Vendor JS Files -->
   <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

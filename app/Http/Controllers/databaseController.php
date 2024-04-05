@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Models\Car;
+use App\Models\Message;
 use App\Models\Payment;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Session;
@@ -150,4 +151,16 @@ class databaseController extends Controller
       
     return redirect()->route('indexpage');
     }
+ public function do_message(Request $request){
+   
+    $request->validate([
+        'register_id'=>'required',
+        'message'=>'required|string',
+    ]);
+ Message::create([
+    'register_id' =>$request->register_id,
+    'message' =>$request->message,
+ ]);
+    return redirect()->route('viewbooking');
+}
 }

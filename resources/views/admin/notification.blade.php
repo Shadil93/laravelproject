@@ -18,47 +18,24 @@
             <div class="col-1">
 
             </div>
-           
             <div class="col-3">
             <div class="card" style="width: 64rem;">
   <div class="card-body">
-    <h3><u>view booking</u></h3>
-    <table class="table table-dark bg-white  table-bordered table-striped ">
-    
-        <tr>
-          
-            <th>name</th>
-            <th>mobile</th>
-            <th>Carname</th>
-            <th>rate</th>
-            <th>status</th>
-            <th>payment</th>
-            <th>photo</th>
-            <th>picking_up_date</th>
-            <th>dropping_off_date</th>
-            <th>send notification</th>
-        </tr>
-        @foreach($data as $datas)
-        <tr>  
-          
-            <td>{{$datas->name}}</td>
-            <td>{{$datas->mobile}}</td>
-            <td>{{$datas->Carname}}</td>
-            <td>{{$datas->rate}}</td>
-            <td>{{$datas->status}}</td>
-            <td>{{$datas->payment}}</td>
-            <td><img src="{{asset('storage/images/' .$datas->photo)}}"alt="images" width="100px" height="100px" ></td>
-            <td>{{$datas->picking_up_date}}</td>
-            <td>{{$datas->dropping_off_date}}</td>
-            <td><a href="{{route('notification',$datas->id)}}" class="btn btn-success btn-sm mt-4">send_notification</a></td>
-           
+    <h3><u>send notification</u></h3>
+    <form action="{{route('do_message')}}" method="POST" >
+        @csrf
+    <input type="hidden" name="register_id" value="{{ $userid->id }}" class="form-control">
 
-        </tr>
-        @endforeach
-    </table>
-    
-                
 
+    <label>Message</label>
+    <input type="text" name="message" class="form-control">
+    <button type="submit" class="btn btn-success">submit</button>
+    </form>
+
+
+
+
+    
   </div>
             </div>
 

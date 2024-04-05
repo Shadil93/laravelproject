@@ -57,3 +57,7 @@ Route::post('/do_payment',[databaseController::class,'do_payment'])->name('do_pa
 
 
 Route::get('/viewbooking',[pageController::class,'viewbooking'])->name('viewbooking');
+Route::get('/notification/{id}',[pageController::class,'notification'])->name('notification');
+Route::post('/do_message',[databaseController::class,'do_message'])->name('do_message');
+
+Route::get('/viewmessage',[pageController::class,'viewmessage'])->name('viewmessage');

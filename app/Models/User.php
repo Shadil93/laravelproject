@@ -23,7 +23,8 @@ class User extends Authenticatable
     //     'password',
     // ];
     protected $guarded=[];
-    protected $parmaryKey ='register_id';
+  
+    
 
     /**
      * The attributes that should be hidden for serialization.

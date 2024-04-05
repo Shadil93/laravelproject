@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use Illuminate\Http\Request;
 use App\Models\Car;
+use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 class pageController extends Controller
 {
     //
@@ -47,40 +49,31 @@ class pageController extends Controller
     public function search(){
         return view('user.search');
     }
- 
-
     public function do_search(Request $request){
        $search = $request->input('search');
-
        $data = Car::where('Carname','like','%' .$search. '%')
        ->orwhere('location','like','%'.$search .'%')
        ->get();
-
-
        return view('index',compact('data'));
 
     }
-
     public function booking($id){
         $cc = Car::find($id);
         Session()->put('car_id',$cc);
         return view('user.booking',compact('cc'));
      }
-
     public function payment(){
-       
        $car_id= Session()->get('car_id');
        $bookid =Session()->get('data');
         return view('user.payment',compact('car_id','bookid'));
     }
-
     public function viewbooking(){
-
+    
         $data=DB::table('bookings')
         ->join('users','bookings.register_id', '=' , 'users.id')
         ->join('cars','bookings.car_id','=','cars.car_id')
         ->join('payments','bookings.booking_id','=','payments.booking_id')
-        ->select('users.name','users.mobile','cars.*','payments.status','payments.payment','bookings.picking_up_date','bookings.dropping_off_date')
+        ->select('users.name','users.mobile','users.id','cars.*','payments.status','payments.payment','bookings.picking_up_date','bookings.dropping_off_date')
         ->get();
         
     
@@ -88,6 +81,17 @@ class pageController extends Controller
     }
    
 
-   
+    public function notification($id){
+        // $data = User::find($id);
+        $userid = User::find($id);
+        return view('admin.notification',compact('userid'));
+    }
+    public function viewmessage()
+    {
+        $user = Auth::id();
+        $msg = Message::where('register_id','=',$user)->get();
+        
+        return view('user.viewmessage',compact('msg'));
+    } 
+    }
 
-}

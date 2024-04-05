@@ -29,7 +29,7 @@ class loginController
     public function loginuser(){
         return view('user.loginuser');
     }
-    public function do_loginuser(Request $request){
+    public function do_loginuser(Request $request,){
         $credentials = $request->only('email','password');
         if(Auth::attempt($credentials)){
              $request->session()->regenerate();

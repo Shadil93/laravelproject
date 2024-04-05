@@ -23,7 +23,7 @@
             <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h3>edit car</h3>
-                <form method="POST" action="{{route('update',$data->id)}}" enctype="multipart/form-data">
+                <form method="POST" action="{{route('update',$data->car_id)}}" enctype="multipart/form-data">
                   @csrf
                   <label>Carname</label>
                   <input type="text" name="Carname" class="form-control"  value="{{$data->Carname}}">

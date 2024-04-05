@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('joins', function (Blueprint $table) {
-            $table->id();
+        Schema::create('messages', function (Blueprint $table) {
+            $table->id('id');
+            $table->unsignedBigInteger('register_id');
+            $table->string('message');
             $table->timestamps();
+            $table->foreign('register_id')->references('id')->on('users');
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('joins');
+        Schema::dropIfExists('messages');
     }
 };
