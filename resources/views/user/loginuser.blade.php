@@ -36,34 +36,47 @@
 
 <!-- Hero Section - Home Page -->
 
-             
-        <div class="col-4 mt-5">
+
+    
+      <div class="col-4 mt-5">
+      <div class="card" style="width: 18rem;">
+    <div class="card-body">
+              <form action="{{route('do_loginuser')}}" method="post">
+                @csrf  
+                <h3><u>user login</u></h3>
+                  <label>email</label>
+                  <input type="text" name="email" class="form-control">
+                  <label>password</label>
+                  <input type="password" name="password" class="form-control">
+                  <button type="submit" class="btn btn-success">submit</button>
+              </form>
+          </div>
+      </div>
           
-        <div class="card" style="width: 18rem;">
-  <div class="card-body">
-            <form action="{{route('do_loginuser')}}" method="post">
-              @csrf  
-              <h3><u>user login</u></h3>
-                <label>email</label>
-                <input type="text" name="email" class="form-control">
-                <label>password</label>
-                <input type="password" name="password" class="form-control">
-                <button type="submit" class="btn btn-success">submit</button>
-            </form>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10">
+           
+          </div>
+          <div class="col-lg-5">
+          
+          </div>
         </div>
+      </div>
+
+    </section><!-- End Hero Section -->
 
 
-
+             
         
 
-   
-   
+
+
   </div>
      </div>
 
     </div>
-
-  </div>
 
 </section><!-- End Clients Section -->
 
