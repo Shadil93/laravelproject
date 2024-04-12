@@ -37,7 +37,21 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 
-
+<style>
+  .hero 
+  {
+background-image: url("assets/img/hero-bg.jpg");
+background-repeat: no-repeat;
+  }
+  .abc:hover
+  {
+transform: scale(1.05);
+  }
+  .abc 
+  {
+    transition:transform 3s;
+  }
+</style>
 
 
 </head>
@@ -111,16 +125,27 @@
     <!-- Hero Section - Home Page --->
     <section id="hero" class="hero">
 
-      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+      <!-- <img src="" alt="" data-aos="fade-in"> -->
 
       <div class="container">
         <div class="row">
-          <div class="col-lg-10">
-           
-          </div>
-          <div class="col-lg-5">
+          <div class="col-12 d-flex ">
+          @foreach($data as $datas)
+          <div class="abc card mx-2" style="width: 13rem;box-shadow:7px 10px 7px 10px grey">
+          <img src="{{ asset('storage/images/'.$datas->photo) }}" class="position-relative" width="50px" height="50px">
+  <div class="card-body">
+  <p class="text-dark fs-6">Carname:{{$datas->Carname}}</p>
+    <p class="text-dark fs-6">Rate:{{$datas->rate}}</p>
+    <p class="text-dark fs-6">model:{{$datas->models}}</p>
+    <p class="text-dark fs-6">location:{{$datas->location}}</p>
           
+    <a href="{{route('loginuser')}}" class="btn btn-danger">book now</a> 
+  </div>
+</div>
+
+@endforeach
           </div>
+       
         </div>
       </div>
 
@@ -169,25 +194,7 @@
       <div class="row" > 
         <div class="col-12 d-flex flex-wrap">
 
-        @foreach($data as $datas)
-
-<div class="card mt-5 w-25 mx-1 ">
-  <div class="card-body">
-
- 
-        <img src="{{ asset('storage/images/'.$datas->photo) }}" width="100px" height="100px">
-  
-    <h3>Carname:{{$datas->Carname}}</h3>
-    <p>Rate:{{$datas->rate}}</p>
-    <p>models:{{$datas->models}}</p>
-    <p>location:{{$datas->location}}</p>
-          
-    <a href="{{route('booking',$datas->car_id)}}" class="btn btn-danger">book now</a> 
-  
-   </div>
-   
-</div>
-@endforeach
+    
 
         </div>
     </div>

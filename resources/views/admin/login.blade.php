@@ -29,7 +29,7 @@
   <div class="container">
     <div class="row">
      <button><a href="{{route('index')}}" class="btn btn-success ">back</a></button>
-      <div class="col-3">
+      <div class="col-4">
       </div>
       
 

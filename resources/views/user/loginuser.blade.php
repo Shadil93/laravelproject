@@ -30,15 +30,9 @@
     <div class="row">
      <button><a href="{{route('index')}}" class="btn btn-success ">back</a></button>
     
-      <div class="col-3">
-      </div>
-      
-
-<!-- Hero Section - Home Page -->
-
-
-    
-      <div class="col-4 mt-5">
+      <div class="col-4">
+      </div>    
+      <div class="col-5 mt-5">
       <div class="card" style="width: 18rem;">
     <div class="card-body">
               <form action="{{route('do_loginuser')}}" method="post">
@@ -48,7 +42,8 @@
                   <input type="text" name="email" class="form-control">
                   <label>password</label>
                   <input type="password" name="password" class="form-control">
-                  <button type="submit" class="btn btn-success">submit</button>
+                  <button type="submit" class="btn btn-success mt-2">login</button>
+                  <a href="{{route('register')}}" class="btn btn-danger mt-2">sign up</a>
               </form>
           </div>
       </div>

@@ -9,7 +9,7 @@
   <body>
     <div class="container">
         <div class="row">
-            <div class="col-3">
+            <div class="col-4">
 
             </div>
            
@@ -18,7 +18,6 @@
             <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h3>upload car</h3>
-
                 <Form Action="{{route('do_upload')}}" Method="POST" enctype="multipart/form-data">
                   @csrf
                     <label>Carname</label>
@@ -32,8 +31,6 @@
                     <label>photo</label>
                     <input type="file" name="photo" class="form-control">
                     <input type="submit" class="btn btn-success">
-
-
                 </Form>
   </div>
             </div>
